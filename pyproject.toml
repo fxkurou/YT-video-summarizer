@@ -1,0 +1,63 @@
+[tool.poetry]
+name = "yt-video-summarizer"
+version = "0.1.0"
+description = ""
+authors = ["Little-Wretch <nazarr914@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.116.1"
+uvicorn = "^0.35.0"
+openai = "^1.102.0"
+requests = "^2.32.5"
+yt-dlp = "^2025.8.22"
+pytest = "^8.4.1"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.6.8"
+bandit = "^1.7.10"
+coverage = "^7.6.1"
+commitizen = "^3.29.1"
+
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "$version"
+version_scheme = "pep440"
+version_provider = "poetry"
+update_changelog_on_bump = true
+major_version_zero = true
+
+
+[tool.ruff]
+line-length = 120
+
+
+[tool.ruff.lint]
+select = ["Q000", "I001"]
+
+
+[tool.coverage.run]
+branch = true
+omit = [
+    "*/__init__.py",
+    "*/tests.py",
+    "*/migrations/*",
+    "*/settings/*",
+    "*/wsgi.py",
+    "*/asgi.py",
+    "manage.py"
+]
+source = ["."]
+
+
+[tool.coverage.report]
+show_missing = true
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
