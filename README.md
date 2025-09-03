@@ -12,9 +12,14 @@ A FastAPI-based service that fetches YouTube video subtitles, cleans the transcr
 
 ```
 yt-video-summarizer/
+├── .github/workflows        
+│   └── ci.yml              # CI config
 ├── api/
 │   └── endpoints/
 │       └── video.py         # FastAPI endpoint for summarization
+├── configs/
+│   ├── logger.py            # Logging setup
+│   └── openai.py            # OpenAI env varialbles
 ├── services/
 │   ├── transcriber.py       # Fetches YouTube subtitles
 │   ├── text_cleaner.py      # Cleans transcript text
@@ -22,7 +27,9 @@ yt-video-summarizer/
 ├── tests/
 │   ├── test_endpoint.py     # Endpoint tests
 │   └── test_services.py     # Service function tests
+├── main.py                  # Enter point
 ├── pyproject.toml           # Poetry configuration
+├── .pre-commit-config.yaml  # Pre-commit configuration
 └── README.md                # Project documentation
 ```
 
@@ -63,7 +70,7 @@ poetry run uvicorn main:app --reload
 
 **Example:**
 ```
-GET /summarize/?youtube_url=https://youtube.com/watch?v=abc123&style=bullet
+GET /videos/summarize/?youtube_url=https://youtube.com/watch?v=abc123&style=bullet
 ```
 
 **Response:**
