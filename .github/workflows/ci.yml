@@ -32,3 +32,5 @@ jobs:
         run: |
           poetry run coverage run -m pytest
           poetry run coverage report --fail-under=80
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
