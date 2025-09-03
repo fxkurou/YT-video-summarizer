@@ -4,6 +4,11 @@ import yt_dlp
 
 
 def get_transcription(video_url: str) -> str:
+    """
+    Fetches the transcription URL of a YouTube video using yt-dlp.
+    :param video_url:
+    :return: URL of the transcription file
+    """
     ydl_opts = {
         "skip_download": True,
         "writesubtitles": True,

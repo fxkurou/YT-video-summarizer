@@ -14,6 +14,12 @@ async def summarize(
     youtube_url: str = Query(..., description="YouTube video URL"),
     style: str = Query("paragraph", description="Summary style: 'paragraph' or 'bullet'"),
 ):
+    """
+    Summarize the transcript of a YouTube video.
+    :param youtube_url:
+    :param style:
+    :return:
+    """
     try:
         transcript_url = get_transcription(youtube_url)
         transcript_text = clean_text(transcript_url)
